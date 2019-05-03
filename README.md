@@ -7,6 +7,15 @@ See the following video for a demonstration of the running application.
 
 Note that I also tried using ion-tabs, but the generated css entirely breaks the flow, so you can't even click on buttons. See the ion-tabs branch for a quick demo.
 
+```
+ionic version
+```
+
+```
+4.12.0
+```
+
+
 The application was generated using 
 
 ```
@@ -111,4 +120,8 @@ home.page.html
   <router-outlet></router-outlet>
 </ion-content>
 ````
+
+I also added a dump of the npm list output so that you can see the exact versions:
+
+[npm-list.txt](npm-list.txt)
 
