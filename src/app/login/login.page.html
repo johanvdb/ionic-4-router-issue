@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p>Login</p>
+    <ion-button [routerLink]="['/home']">
+      Home
+    </ion-button>
+    <ion-button [routerLink]="['/login/username']">
+      Username
+    </ion-button>
+    <ion-button [routerLink]="['/login/password']">
+      Password
+    </ion-button>
+    <hr/>
+    <router-outlet></router-outlet>
+</ion-content>

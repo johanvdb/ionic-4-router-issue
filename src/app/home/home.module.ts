@@ -14,7 +14,11 @@ import { HomePage } from './home.page';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: HomePage,
+        children: [
+          { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
+          { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' }
+        ]
       }
     ])
   ],
