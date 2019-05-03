@@ -1,5 +1,11 @@
 # ionic-4-router-issue
-Example to showcase the ionic 4 router that stalls when using router-outlet and children
+The following example showcases the ionic 4 router that stalls when using router-outlet and children routes.
+
+See the following video for a demonstration of the running application.
+
+[![Watch the video](https://i9.ytimg.com/vi/6PzQ1dH8HwA/mq1.jpg?sqp=CMiHr-YF&rs=AOn4CLCZu0boNPeJIkLAXH-h4xuJu_uLOA)](https://youtu.be/6PzQ1dH8HwA)
+
+Note that I also tried using ion-tabs, but the generated css entirely breaks the flow, so you can't even click on buttons. See the ion-tabs branch for a quick demo.
 
 The application was generated using 
 
@@ -105,3 +111,4 @@ home.page.html
   <router-outlet></router-outlet>
 </ion-content>
 ````
+
