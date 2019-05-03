@@ -1,0 +1,107 @@
+# ionic-4-router-issue
+Example to showcase the ionic 4 router that stalls when using router-outlet and children
+
+The application was generated using 
+
+```
+ionic start ionic4nestedroutes blank
+```
+
+I then created a second "root level" page, using
+
+````
+ionic g page login
+````
+
+Next I generated 2 children each for the two "root level" pages
+
+````
+cd src/app/home
+ionic g page about
+ionic g page settings
+cd ../../..
+cd src/app/login
+ionic g page username
+ionic g page password
+````
+
+Next I moved the generated routes out of the "root level" routing, and added them to the routes in home and login:
+
+````
+const routes: Routes = [
+  {
+    path: '',
+    component: LoginPage,
+    children: [
+      { path: 'username', loadChildren: './username/username.module#UsernamePageModule' },
+      { path: 'password', loadChildren: './password/password.module#PasswordPageModule' }
+    ]
+  }
+];
+````
+
+````
+    RouterModule.forChild([
+      {
+        path: '',
+        component: HomePage,
+        children: [
+          { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
+          { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' }
+        ]
+      }
+    ])
+````
+
+Add some links and a bit of content:
+
+login.page.html
+
+````
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p>Login</p>
+    <ion-button [routerLink]="['/home']">
+      Home
+    </ion-button>
+    <ion-button [routerLink]="['/login/username']">
+      Username
+    </ion-button>
+    <ion-button [routerLink]="['/login/password']">
+      Password
+    </ion-button>
+    <hr/>
+    <router-outlet></router-outlet>
+</ion-content>
+````
+
+home.page.html
+````
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>Home</p>
+  <ion-button [routerLink]="['/login']">
+    Logout
+  </ion-button>
+  <ion-button [routerLink]="['/home/about']">
+    About
+  </ion-button>
+  <ion-button [routerLink]="['/home/settings']">
+    Settings
+  </ion-button>
+  <hr/>
+  <router-outlet></router-outlet>
+</ion-content>
+````
